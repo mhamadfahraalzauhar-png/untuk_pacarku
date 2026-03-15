@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Untuk Kamu 🤍</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+color:white;
+}
+
+.container{
+background:rgba(0,0,0,0.35);
+padding:35px;
+border-radius:20px;
+max-width:520px;
+}
+
+img{
+width:150px;
+border-radius:20px;
+margin-bottom:10px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:20px;
+background:#ff4d6d;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:15px;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.heart{
+position:absolute;
+font-size:22px;
+animation:fall 6s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-100px);opacity:1}
+100%{transform:translateY(100vh);opacity:0}
+}
+
+.hidden{
+display:none;
+}
+
+.kucing{
+font-size:40px;
+animation:lompat 2s infinite;
+}
+
+@keyframes lompat{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<div id="page1">
+<h1>Hai Kamu 🤍</h1>
+<p>Aku membuat sesuatu untuk kamu...</p>
+<button onclick="nextPage()">Buka Pesannya</button>
+</div>
+
+<div id="page2" class="hidden">
+
+<img src="foto_kita.jpg">
+
+<div class="kucing">🐱</div>
+
+<h2>Maaf Ya...</h2>
+
+<p>
+Aku ingin minta maaf dari hati yang paling dalam.
+Aku sadar mungkin selama ini aku sering melakukan kesalahan ke kamu.
+Aku terlalu banyak melarang, terlalu emosional,
+dan kadang tidak memikirkan perasaan kamu.
+</p>
+
+<p>
+Aku juga sadar mungkin sikapku membuat kamu sedih,
+bahkan sampai kamu sakit karena ulah aku sendiri.
+Memikirkan itu membuat aku merasa sangat bersalah.
+</p>
+
+<p>
+Jujur aku tidak pernah berniat menyakiti kamu.
+Kamu adalah orang yang sangat berarti buat aku.
+Aku hanya seseorang yang masih banyak kekurangan,
+tapi aku selalu ingin belajar menjadi lebih baik untuk kamu.
+</p>
+
+<p>
+Aku ingin memperbaiki semuanya,
+ingin kita kembali seperti dulu,
+lebih bahagia, lebih saling mengerti,
+dan tidak sering bertengkar lagi.
+</p>
+
+<button onclick="showLove()">Maafin aku ya 🤍</button>
+
+<p id="loveText" class="hidden">
+Terima kasih sudah membaca ini.
+Aku benar-benar sayang sama kamu. 🤍
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function nextPage(){
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+}
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💗";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+}
+
+setInterval(createHeart,250);
+
+function showLove(){
+document.getElementById("loveText").classList.remove("hidden");
+}
+
+</script>
+
+</body>
+</html>
